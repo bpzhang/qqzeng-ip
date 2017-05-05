@@ -23,6 +23,7 @@ CREATE TABLE `ip`.`ip` (
 );
 
 
+
 --导入数据库
 LOAD DATA LOCAL INFILE 'G:\IP数据库\ip.txt'
 INTO TABLE ip
@@ -33,23 +34,14 @@ LINES TERMINATED BY '\n'
 
 
 
---导入数据库
-LOAD DATA LOCAL INFILE 'G:\IP数据库\ip.txt'
-INTO TABLE ip
-FIELDS TERMINATED BY '|'
-LINES TERMINATED BY '\n'
-(StartIp, EndIp, StartIpNum,EndIpNum,Country,Province,City,District,ISP,AreaCode);
-
-
 --查询
-SELECT * FROM ip WHERE INET_ATON('219.232.57.199') BETWEEN StartIpNum AND EndIpNum LIMIT 1
+SELECT * FROM ip WHERE INET_ATON('219.232.57.199') BETWEEN ip_start_num AND ip_end_num LIMIT 1
 
 
 
 
 --mysql乱码如何解决？
 
- 
 
 --解决：
 
@@ -62,3 +54,4 @@ SELECT * FROM ip WHERE INET_ATON('219.232.57.199') BETWEEN StartIpNum AND EndIpN
 --如：
 
 …… into table test character set utf8 fields……
+

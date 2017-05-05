@@ -2,7 +2,7 @@
 
 --创建表 最新行政区划数据库
 
---字段 区划ID-父ID-级别-全称-全称聚合-区号-邮编-简称-简称聚合-拼音-简拼-首字母-经度-纬度
+--字段 区划ID-父ID-全称-全称聚合-简称-简称聚合-级别-区号-邮编-拼音-简拼-首字母-经度-纬度-备注
 
 CREATE TABLE `areas``.`areas` (
 `ID`  VARCHAR(45) NULL,
@@ -18,7 +18,8 @@ CREATE TABLE `areas``.`areas` (
 `Jianpin` VARCHAR(45) NULL,
 `FirstChar` VARCHAR(45) NULL,
 `lng` VARCHAR(45) NULL,
-`Lat` VARCHAR(45) NULL
+`Lat` VARCHAR(45) NULL,
+`Remark` VARCHAR(45) NULL
 );
 
 
@@ -28,7 +29,8 @@ LOAD DATA LOCAL INFILE 'G:\areas.txt'
 INTO TABLE areas
 FIELDS TERMINATED BY '\t'
 LINES TERMINATED BY '\n'
-(ID,ParentId,Name,MergerName,ShortName,MergerShortName,LevelType,CityCode,ZipCode,Pinyin,Jianpin,FirstChar,lng,Lat);
+(ID,ParentId,Name,MergerName,ShortName,MergerShortName,LevelType,CityCode,ZipCode,Pinyin,Jianpin,FirstChar,lng,Lat,Remark);
 
 
+--xls 全选复制到txt
 --默认 txt为中文编码  导入时 请转为utf-8编码 以免乱码 
